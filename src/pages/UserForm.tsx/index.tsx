@@ -3,10 +3,7 @@ import { createUser } from "../../services/apiServices";
 import { UserDataType } from "../../shared/type";
 
 function UserForm() {
-  const [userData, setUserData] = useState<UserDataType[]>([]);
-
-  const [data, setData] = useState({
-    ...userData,
+  const [data, setData] = useState<UserDataType>({
     firstName: "",
     lastName: "",
     email: "",
@@ -24,29 +21,8 @@ function UserForm() {
 
   function handleCreateData(e: React.ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    const newData = {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      age: data.age,
-      address: data.address,
-      country: data.country,
-      city: data.city,
-      gender: data.gender,
-      martialStatus: data.martialStatus,
-    };
-
-    console.log(newData);
-
-    createUser(newData);
-    console.log(data);
+    createUser(data);
   }
-
-  // useEffect(function () {
-
-  //   getUser();
-  // }, []);
 
   return (
     <form
