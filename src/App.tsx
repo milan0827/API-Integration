@@ -1,4 +1,3 @@
-import AppLayout from "./layout/AppLayout";
 import AppRouter from "./routes/routes";
 
 function App() {
