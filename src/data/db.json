@@ -1,0 +1,72 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "firstName": "Milan",
+      "lastName": "Rokaya",
+      "age": 22,
+      "email": "milanrokaya2014@gmail.com",
+      "phoneNo": "9869599304",
+      "Nationality": "Nepali",
+      "Address": "Boudha,ktm",
+      "martialStatus": "Unmarried"
+    },
+    {
+      "id": "2",
+      "firstName": "Aanand",
+      "lastName": "Jha",
+      "age": 22,
+      "email": "aanandjha@gmail.com",
+      "phoneNo": "9869599304",
+      "Nationality": "Nepali",
+      "Address": "Boudha,ktm",
+      "martialStatus": "Unmarried"
+    },
+    {
+      "id": "3",
+      "FirstName": "Bibas",
+      "lastName": "Karki",
+      "age": 22,
+      "email": "bibash@gmail.com",
+      "phoneNo": "9869599304",
+      "Nationality": "Nepali",
+      "Address": "Boudha,ktm"
+    },
+    {
+      "id": "cde8",
+      "firstName": "Sameer",
+      "lastName": "Roka",
+      "email": "sameerroka@gmail.com",
+      "age": "23",
+      "address": "Chabahil",
+      "country": "Nepal",
+      "city": "Ktm",
+      "gender": "Male",
+      "martialStatus": "Single"
+    },
+    {
+      "id": "9789",
+      "firstName": "Naresh",
+      "lastName": "Mahato",
+      "email": "nareshmahato@gmail.com",
+      "age": "24",
+      "address": "Ktm",
+      "country": "Nepal",
+      "city": "Ktm",
+      "gender": "Male",
+      "martialStatus": "Unmarried"
+    },
+    {
+      "id": "0692",
+      "firstName": "Abi ",
+      "lastName": "Rokaya",
+      "email": "abirokaya@gmail.com",
+      "age": "12",
+      "address": "KTM",
+      "country": "Nepal",
+      "city": "KTM",
+      "gender": "Male",
+      "martialStatus": "Unmarried"
+    }
+  ]
+}
