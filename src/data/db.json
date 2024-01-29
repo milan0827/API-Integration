@@ -67,6 +67,30 @@
       "city": "KTM",
       "gender": "Male",
       "martialStatus": "Unmarried"
+    },
+    {
+      "id": "7a21",
+      "firstName": "Hari",
+      "lastName": "Karki",
+      "email": "hari@gmail.com",
+      "age": "25",
+      "address": "ktm",
+      "country": "nepal",
+      "city": "ktm",
+      "gender": "Male",
+      "martialStatus": "married"
+    },
+    {
+      "id": "685b",
+      "firstName": "Saroj",
+      "lastName": "Ghalan",
+      "email": "ghalaSaroj@gmail.com",
+      "age": "032",
+      "address": "ktm",
+      "country": "Nepal",
+      "city": "ktm",
+      "gender": "male",
+      "martialStatus": "unmarried"
     }
   ]
 }
