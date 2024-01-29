@@ -3,29 +3,21 @@ import { UserDataType } from "../shared/type";
 
 const BASE_URL = "http://localhost:3000/user";
 
+const userApi = axios.create({
+  baseURL: BASE_URL,
+  timeout: 2000,
+});
+
 export async function createUser(data: UserDataType) {
-  try {
-    await axios.post(BASE_URL, { ...data });
-  } catch (err) {
-    console.error(err);
-  }
+  await userApi.post("/", { ...data });
 }
 
 export async function geAlltUser() {
-  try {
-    const data = await axios.get(`${BASE_URL}`);
-    console.log(data.data);
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
+  const data = await userApi.get("/");
+  return data;
 }
 
 export async function getUser(id: string) {
-  try {
-    const data = await axios.get(`${BASE_URL}/${id}}`);
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
+  const data = await userApi.get(`/${id}`);
+  return data;
 }
