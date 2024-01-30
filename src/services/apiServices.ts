@@ -12,8 +12,8 @@ export async function createUser(data: UserDataType) {
   await userApi.post("/", { ...data });
 }
 
-export async function geAlltUser() {
-  const data = await userApi.get("/");
+export async function getAllUser() {
+  const data = await userApi.get("/").then((res) => res.data);
   return data;
 }
 
@@ -22,20 +22,20 @@ export async function getUser(id: string) {
   return data;
 }
 
-userApi.interceptors.request.use(
-  function (config) {
-    return config;
-  },
-  function (err) {
-    return Promise.reject(err);
-  },
-);
+// userApi.interceptors.request.use(
+//   function (config) {
+//     return config;
+//   },
+//   function (err: Error) {
+//     return Promise.reject(err);
+//   },
+// );
 
-userApi.interceptors.response.use(
-  function (response) {
-    return response;
-  },
-  function (err) {
-    return Promise.reject(err);
-  },
-);
+// userApi.interceptors.response.use(
+//   function (response) {
+//     return response;
+//   },
+//   function (err) {
+//     return Promise.reject(err);
+//   },
+// );
