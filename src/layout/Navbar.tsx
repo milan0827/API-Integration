@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <nav className="w-full p-4 bg-blue-500 flex justify-between ">
+    <nav className="mb-12 flex w-full justify-between bg-blue-500 p-4">
       <div>Logo</div>
       <ul className="flex ">
         <li>

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import UserForm from "../pages/UserForm.tsx/index.tsx";
-import Navbar from "./Navbar.tsx";
+import Navbar from "./Navbar";
+
 function AppLayout() {
   return (
     <>
