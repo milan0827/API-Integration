@@ -4,6 +4,11 @@
 
 @layer components {
   .input {
-    @apply pt-6 pb-4 h-10 block transition-all duration-500 text-[1.2rem] border-b-[3px] border-gray-300 outline-none active:border-b-[3px] active:border-b-blue-500 active:border-solid focus:border-b-[3px] focus:border-b-blue-500 focus:border-solid text-gray-500;
+    @apply block h-10 border-b-[3px] border-gray-300 pb-4 pt-6 text-[1.2rem] text-gray-500 outline-none transition-all duration-500 focus:border-b-[3px] focus:border-solid focus:border-b-blue-500 active:border-b-[3px] active:border-solid active:border-b-blue-500;
   }
+}
+
+th,
+td {
+  padding: 10px;
 }
