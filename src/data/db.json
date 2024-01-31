@@ -20,113 +20,18 @@
       "phoneNo": "9869599304",
       "Nationality": "Nepali",
       "Address": "Boudha,ktm",
-      "martialStatus": "Unmarried"
-    },
-    {
-      "id": "3",
-      "FirstName": "Bibas",
-      "lastName": "Karki",
-      "age": 22,
-      "email": "bibash@gmail.com",
-      "phoneNo": "9869599304",
-      "Nationality": "Nepali",
-      "Address": "Boudha,ktm"
-    },
-    {
-      "id": "cde8",
-      "firstName": "Sameer",
-      "lastName": "Roka",
-      "email": "sameerroka@gmail.com",
-      "age": "23",
-      "address": "Chabahil",
-      "country": "Nepal",
-      "city": "Ktm",
-      "gender": "Male",
-      "martialStatus": "Single"
-    },
-    {
-      "id": "9789",
-      "firstName": "Naresh",
-      "lastName": "Mahato",
-      "email": "nareshmahato@gmail.com",
-      "age": "24",
-      "address": "Ktm",
-      "country": "Nepal",
-      "city": "Ktm",
-      "gender": "Male",
-      "martialStatus": "Unmarried"
-    },
-    {
-      "id": "0692",
-      "firstName": "Abi ",
-      "lastName": "Rokaya",
-      "email": "abirokaya@gmail.com",
-      "age": "12",
-      "address": "KTM",
-      "country": "Nepal",
-      "city": "KTM",
-      "gender": "Male",
-      "martialStatus": "Unmarried"
-    },
-    {
-      "id": "7a21",
-      "firstName": "Hari",
-      "lastName": "Karki",
-      "email": "hari@gmail.com",
-      "age": "25",
-      "address": "ktm",
-      "country": "nepal",
-      "city": "ktm",
-      "gender": "Male",
       "martialStatus": "married"
     },
     {
-      "id": "685b",
-      "firstName": "Saroj",
-      "lastName": "Ghalan",
-      "email": "ghalaSaroj@gmail.com",
-      "age": "032",
-      "address": "ktm",
-      "country": "Nepal",
-      "city": "ktm",
-      "gender": "male",
-      "martialStatus": "unmarried"
-    },
-    {
-      "id": "",
-      "firstName": "dfas",
-      "lastName": "fds",
-      "email": "fds",
-      "age": 0,
-      "address": "dsfsa",
-      "country": "",
-      "city": "dsfa",
-      "gender": "",
-      "martialStatus": ""
-    },
-    {
-      "id": "",
-      "firstName": "dfas",
-      "lastName": "fds",
-      "email": "fds",
-      "age": 0,
-      "address": "dsfsa",
-      "country": "",
-      "city": "dsfa",
-      "gender": "",
-      "martialStatus": ""
-    },
-    {
-      "id": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "age": 0,
-      "address": "",
-      "country": "",
-      "city": "",
-      "gender": "",
-      "martialStatus": ""
+      "id": "2",
+      "firstName": "Aanand",
+      "lastName": "Jha",
+      "age": 22,
+      "email": "aanandjha@gmail.com",
+      "phoneNo": "9869599304",
+      "Nationality": "Nepali",
+      "Address": "Boudha,ktm",
+      "martialStatus": "Unmarried"
     }
   ]
 }
