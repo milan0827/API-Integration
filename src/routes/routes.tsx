@@ -9,10 +9,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        // path: "user-data",
         element: <UserForm />,
       },
       {
-        path: "user-data",
+        path: "user-data/:id",
+        element: <UserForm />,
+      },
+      {
+        path: "user-details",
         element: <TableView />,
       },
     ],
