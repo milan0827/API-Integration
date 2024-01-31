@@ -1,10 +1,13 @@
-import { useState } from "react";
-import { createUser } from "../../services/apiServices";
+import { useEffect, useState } from "react";
+// import { useApi } from "../../hooks/useApi";
 import { UserDataType } from "../../shared/type";
+import { usePost } from "../../hooks/usePost";
+import { useLocation } from "react-router-dom";
+import { useUpdate } from "../../hooks/useUpdate";
 
 function UserForm() {
-  const [data, setData] = useState<UserDataType>({
-    id: "",
+  const [userData, setUserData] = useState<UserDataType>({
+    
     firstName: "",
     lastName: "",
     email: "",
@@ -16,26 +19,34 @@ function UserForm() {
     martialStatus: "",
   });
 
+  const [isEditMode, setIsEditMode] = useState(false);
+  const location = useLocation();
+  const fetchedUserData = location?.state?.user;
+  const { error, fetchSingleUser } = useUpdate(userData.id, userData);
+
+  useEffect(() => {
+    if (fetchedUserData) {
+      setIsEditMode(true);
+      setUserData(fetchedUserData);
+    }
+  }, [fetchedUserData]);
+
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   }
 
-  function handleCreateData(e: React.ChangeEvent<HTMLFormElement>) {
+  const { call, isLoading } = usePost({
+    url: "/user",
+    userData: userData,
+  });
+  const HandleCreateData = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createUser(data);
-    // setData({
-    //   id: "",
-    //   firstName: "",
-    //   lastName: "",
-    //   email: "",
-    //   age: 0,
-    //   address: "",
-    //   country: "",
-    //   city: "",
-    //   gender: "",
-    //   martialStatus: "",
-    // });
-  }
+    if (isEditMode) {
+      fetchSingleUser();
+      setIsEditMode(false);
+    }
+    call();
+  };
 
   return (
     <>
@@ -44,7 +55,7 @@ function UserForm() {
       </h1>
       <form
         className="grid grid-cols-gridAutoFitCol gap-xl px-[50px]"
-        onSubmit={handleCreateData}
+        onSubmit={HandleCreateData}
       >
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">First Name</label>
@@ -53,7 +64,7 @@ function UserForm() {
             placeholder="First name"
             className="input"
             name="firstName"
-            value={data.firstName}
+            value={userData.firstName}
             onChange={handleInputChange}
           />
         </div>
@@ -64,7 +75,7 @@ function UserForm() {
             placeholder="Last name"
             className="input"
             name="lastName"
-            value={data.lastName}
+            value={userData.lastName}
             onChange={handleInputChange}
           />
         </div>
@@ -75,7 +86,7 @@ function UserForm() {
             placeholder="Email"
             className="input"
             name="email"
-            value={data.email}
+            value={userData.email}
             onChange={handleInputChange}
           />
         </div>
@@ -86,7 +97,7 @@ function UserForm() {
             placeholder="Age"
             className="input"
             name="age"
-            value={data.age}
+            value={userData.age}
             onChange={handleInputChange}
           />
         </div>
@@ -97,7 +108,7 @@ function UserForm() {
             placeholder="Address"
             className="input"
             name="address"
-            value={data.address}
+            value={userData.address}
             onChange={handleInputChange}
           />
         </div>
@@ -108,7 +119,7 @@ function UserForm() {
             placeholder="Country"
             className="input"
             name="country"
-            value={data.country}
+            value={userData.country}
             onChange={handleInputChange}
           />
         </div>
@@ -119,7 +130,7 @@ function UserForm() {
             placeholder="City"
             className="input"
             name="city"
-            value={data.city}
+            value={userData.city}
             onChange={handleInputChange}
           />
         </div>
@@ -130,7 +141,7 @@ function UserForm() {
             placeholder="Gender"
             className="input"
             name="gender"
-            value={data.gender}
+            value={userData.gender}
             onChange={handleInputChange}
           />
         </div>
@@ -141,12 +152,14 @@ function UserForm() {
             placeholder="Martial status"
             className="input"
             name="martialStatus"
-            value={data.martialStatus}
+            value={userData.martialStatus}
             onChange={handleInputChange}
           />
         </div>
 
-        <button className="bg-blue-400 p-4 text-gray-200">Submit</button>
+        <button className="bg-blue-400 p-4 text-gray-200">
+          {isLoading ? "loading" : "submit"}
+        </button>
       </form>
     </>
   );

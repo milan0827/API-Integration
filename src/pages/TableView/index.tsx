@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
-import { getAllUser } from "../../services/apiServices";
+import useFetch from "../../hooks/useFetch";
 import { UserDataType } from "../../shared/type";
 import TableRow from "./TableRow";
 
-function TableView() {
-  const [userData, setUserData] = useState([]);
+const BASE_URL = "http://localhost:3000/user";
 
-  useEffect(function () {
-    getAllUser().then((data: UserDataType[]) => setUserData(data));
-  }, []);
+function TableView() {
+  const { data, isLoading, error } = useFetch(BASE_URL);
+
+  if (error) {
+    return (
+      <h1 className="mb-[50px] pl-[50px] text-center text-3xl font-semibold uppercase text-gray-700/80 ">
+        {error}
+      </h1>
+    );
+  }
 
   // Data to be displayed
   return (
@@ -31,11 +36,14 @@ function TableView() {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody className="">
-          {userData.map((user: UserDataType) => (
-            <TableRow key={user.id} user={user} />
-          ))}
-        </tbody>
+
+        {!isLoading ? (
+          <tbody className="">
+            {data.map((user: UserDataType) => (
+              <TableRow key={user.email} user={user} />
+            ))}
+          </tbody>
+        ) : null}
       </table>
     </>
   );
