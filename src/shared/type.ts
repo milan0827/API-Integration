@@ -3,7 +3,7 @@ export type UserDataType = {
   firstName: string;
   lastName: string;
   email: string;
-  age: number;
+  age: string;
   address: string;
   country: string;
   city: string;

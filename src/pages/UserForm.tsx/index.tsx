@@ -12,13 +12,16 @@ function UserForm() {
     firstName: "",
     lastName: "",
     email: "",
-    age: 0,
+    age: "",
     address: "",
     country: "",
     city: "",
     gender: "",
     martialStatus: "",
   });
+
+  const [validationError, setValidationError] = useState("");
+  const [isError, setIsError] = useState<boolean>(false);
 
   const [isEditMode, setIsEditMode] = useState(false);
   const location = useLocation();
@@ -42,8 +45,22 @@ function UserForm() {
     userData: userData,
   });
 
+  // userDataValues.forEach((el, i) => {
+
+  // });
+
   const HandleCreateData = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const userDataValues = Object.values(userData);
+
+    for (let i = 0; i < userDataValues.length; i++) {
+      if (userDataValues[i].length === 0) {
+        return setIsError(true);
+      }
+      setIsError(false);
+    }
+
     if (isEditMode) {
       updateUser();
       setIsEditMode(false);
@@ -54,13 +71,17 @@ function UserForm() {
     navigate("/user-details");
   };
 
+  if (error) {
+    return <h1>{error} </h1>;
+  }
+
   return (
     <>
-      <h1 className="mb-[50px] pl-[50px] text-center text-3xl font-semibold uppercase text-gray-700/80  ">
+      <h1 className="mb-[32px] pl-[50px] text-center text-3xl font-semibold uppercase text-gray-700/80  ">
         User form
       </h1>
       <form
-        className="grid grid-cols-gridAutoFitCol gap-xl px-[50px]"
+        className="grid grid-cols-gridAutoFitCol gap-[3rem] px-[50px]"
         onSubmit={HandleCreateData}
       >
         <div className="flex flex-col">
@@ -71,8 +92,16 @@ function UserForm() {
             className="input"
             name="firstName"
             value={userData.firstName}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.firstName.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your first name
+          </p>
         </div>
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">Last Name</label>
@@ -82,8 +111,16 @@ function UserForm() {
             className="input"
             name="lastName"
             value={userData.lastName}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.lastName.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your last name
+          </p>
         </div>
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">Email</label>
@@ -93,8 +130,16 @@ function UserForm() {
             className="input"
             name="email"
             value={userData.email}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.email.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your email
+          </p>
         </div>
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">Age</label>
@@ -103,9 +148,17 @@ function UserForm() {
             placeholder="Age"
             className="input"
             name="age"
-            value={userData.age}
-            onChange={handleInputChange}
+            value={+userData.age}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.age.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your age
+          </p>
         </div>
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">Address</label>
@@ -115,8 +168,16 @@ function UserForm() {
             className="input"
             name="address"
             value={userData.address}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.address.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your address
+          </p>
         </div>
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">Country</label>
@@ -126,8 +187,16 @@ function UserForm() {
             className="input"
             name="country"
             value={userData.country}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.country.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your country
+          </p>
         </div>
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">City</label>
@@ -137,8 +206,16 @@ function UserForm() {
             className="input"
             name="city"
             value={userData.city}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.city.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your city
+          </p>{" "}
         </div>
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">Gender</label>
@@ -148,8 +225,16 @@ function UserForm() {
             className="input"
             name="gender"
             value={userData.gender}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.gender.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your gender
+          </p>
         </div>
         <div className="flex flex-col">
           <label className=" text-[1rem] text-gray-500">Martial Status</label>
@@ -159,8 +244,16 @@ function UserForm() {
             className="input"
             name="martialStatus"
             value={userData.martialStatus}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e);
+              setIsError(false);
+            }}
           />
+          <p
+            className={`${isError && userData.martialStatus.length <= 0 ? "none visible" : "hidden"} `}
+          >
+            Enter your martial status
+          </p>
         </div>
 
         <button className="bg-blue-400 p-4 text-gray-200">

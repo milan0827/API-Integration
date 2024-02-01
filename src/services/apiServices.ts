@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const service = axios.create({
   baseURL: "http://localhost:3000/user",
-  timeout: 1000,
+  // timeout: 1000,
 });
 
 service.interceptors.request.use(

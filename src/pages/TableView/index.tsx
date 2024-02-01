@@ -1,11 +1,19 @@
 import useFetch from "../../hooks/useFetch";
 import { UserDataType } from "../../shared/type";
 import TableRow from "./TableRow";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BASE_URL = "http://localhost:3000/user";
 
 function TableView() {
   const { data, isLoading, error } = useFetch(BASE_URL);
+  const [userList, setUserList] = useState<UserDataType[]>(data);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setUserList(data);
+  }, [data]);
 
   if (error) {
     return (
@@ -18,10 +26,16 @@ function TableView() {
   // Data to be displayed
   return (
     <>
-      <h1 className="mb-[50px] pl-[50px] text-center text-3xl font-semibold uppercase text-gray-700/80 ">
+      <h1 className="mb-[32px] pl-[50px] text-center text-3xl font-semibold uppercase text-gray-700/80 ">
         User Data
       </h1>
-      <table className="m-auto w-4/5 table-fixed border-collapse border-2 border-solid border-gray-300">
+      <button
+        onClick={() => navigate("/")}
+        className="rounded-sm bg-blue-400 px-4 py-1 text-right text-gray-100"
+      >
+        Add new +
+      </button>
+      <table className="m-auto mb-24 w-[95%] table-fixed border-collapse border-2 border-solid border-gray-300">
         <thead className="bg-slate-300">
           <tr className="text-gray-600/70">
             <th className="">First Name</th>
@@ -39,8 +53,13 @@ function TableView() {
 
         {!isLoading ? (
           <tbody className="">
-            {data.map((user: UserDataType) => (
-              <TableRow key={user.id} user={user} />
+            {userList?.map((user: UserDataType) => (
+              <TableRow
+                key={user.id}
+                user={user}
+                setUserList={setUserList}
+                userList={userList}
+              />
             ))}
           </tbody>
         ) : null}
