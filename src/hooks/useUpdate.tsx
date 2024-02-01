@@ -11,7 +11,7 @@ export function useUpdate(id: string, data: UserDataType) {
   function updateUser() {
     setIsLoading(true);
     service
-      .put(`http://localhost:3000/user-details/${id}`, data)
+      .put(`http://localhost:3000/user/${id}`, data)
       .then((res) => {
         console.log(res.data.id);
         setUserData(res.data);
