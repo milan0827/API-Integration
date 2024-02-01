@@ -8,17 +8,21 @@ export function useUpdate(id: string, data: UserDataType) {
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  async function fetchSingleUser() {
+  function updateUser() {
     setIsLoading(true);
     service
-      .patch(`http://localhost:3000/user-data/${id}`, { ...data })
-      .then((res) => console.log(res))
+      .put(`http://localhost:3000/user-details/${id}`, data)
+      .then((res) => {
+        console.log(res.data.id);
+        setUserData(res.data);
+        setIsLoading(false);
+      })
       .catch((error) => {
         const err = error as AxiosError;
         setError(err.message);
+        setIsLoading(false);
       });
-    setIsLoading(false);
   }
 
-  return { userData, error, isLoading, fetchSingleUser };
+  return { userData, error, isLoading, updateUser };
 }

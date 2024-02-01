@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 // import { useApi } from "../../hooks/useApi";
 import { UserDataType } from "../../shared/type";
 import { usePost } from "../../hooks/usePost";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useUpdate } from "../../hooks/useUpdate";
 
 function UserForm() {
+  const id = useId();
   const [userData, setUserData] = useState<UserDataType>({
-    
+    id: id,
     firstName: "",
     lastName: "",
     email: "",
@@ -22,7 +23,8 @@ function UserForm() {
   const [isEditMode, setIsEditMode] = useState(false);
   const location = useLocation();
   const fetchedUserData = location?.state?.user;
-  const { error, fetchSingleUser } = useUpdate(userData.id, userData);
+  const { error, updateUser } = useUpdate(userData.id, userData);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (fetchedUserData) {
@@ -36,16 +38,20 @@ function UserForm() {
   }
 
   const { call, isLoading } = usePost({
-    url: "/user",
+    url: "/",
     userData: userData,
   });
+
   const HandleCreateData = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isEditMode) {
-      fetchSingleUser();
+      updateUser();
       setIsEditMode(false);
+      navigate("/user-details");
+      return;
     }
     call();
+    navigate("/user-details");
   };
 
   return (

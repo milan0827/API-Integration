@@ -40,7 +40,7 @@ function TableView() {
         {!isLoading ? (
           <tbody className="">
             {data.map((user: UserDataType) => (
-              <TableRow key={user.email} user={user} />
+              <TableRow key={user.id} user={user} />
             ))}
           </tbody>
         ) : null}

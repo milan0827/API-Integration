@@ -22,7 +22,7 @@ export default function TableRow({ user }: UserType) {
       <td>
         <button
           onClick={() => {
-            navigate(`/user-data/${user.id}`, { state: { user } });
+            navigate(`/user-details/${user.id}`, { state: { user } });
           }}
         >
           Edit

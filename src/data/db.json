@@ -1,36 +1,39 @@
 {
   "user": [
     {
-      "id": "1",
+      "id": "58c0",
       "firstName": "Milan",
       "lastName": "Rokaya",
-      "age": 22,
       "email": "milanrokaya2014@gmail.com",
-      "phoneNo": "9869599304",
-      "Nationality": "Nepali",
-      "Address": "Boudha,ktm",
+      "age": "22",
+      "address": "Kathmandu",
+      "country": "Nepal",
+      "city": "Kathmandu",
+      "gender": "Male",
+      "martialStatus": "Single"
+    },
+    {
+      "id": "f6fa",
+      "firstName": "Aanand",
+      "lastName": "Jha",
+      "email": "jhaaanand@gmail.com",
+      "age": "23",
+      "address": "kt",
+      "country": "Nepal",
+      "city": "ktm",
+      "gender": "Male",
       "martialStatus": "Unmarried"
     },
     {
-      "id": "2",
+      "id": "f323",
       "firstName": "Aanand",
       "lastName": "Jha",
-      "age": 22,
-      "email": "aanandjha@gmail.com",
-      "phoneNo": "9869599304",
-      "Nationality": "Nepali",
-      "Address": "Boudha,ktm",
-      "martialStatus": "married"
-    },
-    {
-      "id": "2",
-      "firstName": "Aanand",
-      "lastName": "Jha",
-      "age": 22,
-      "email": "aanandjha@gmail.com",
-      "phoneNo": "9869599304",
-      "Nationality": "Nepali",
-      "Address": "Boudha,ktm",
+      "email": "jhaaanand@gmail.com",
+      "age": "23",
+      "address": "kt",
+      "country": "Nepal",
+      "city": "ktm",
+      "gender": "Male",
       "martialStatus": "Unmarried"
     }
   ]
