@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AxiosError, AxiosResponse } from "axios";
 import { service } from "~/services/apiServices";
 
-export default function useFetch(url: string) {
+export default function useFetch() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -11,7 +11,7 @@ export default function useFetch(url: string) {
     setIsLoading(true);
 
     try {
-      const response: AxiosResponse = await service.get(url);
+      const response: AxiosResponse = await service.get("/");
       setData(response.data);
     } catch (error) {
       const err = error as AxiosError;

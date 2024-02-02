@@ -1,14 +1,11 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "~/hooks/useFetch";
 import { UserDataType } from "~/shared/type";
 import TableRow from "./TableRow";
 
-const BASE_URL = "http://localhost:3000/user";
-
 function TableView() {
-  const { data, isLoading, error } = useFetch(BASE_URL);
+  const { data, isLoading, error } = useFetch();
   const [userList, setUserList] = useState<UserDataType[]>(data);
   const navigate = useNavigate();
 

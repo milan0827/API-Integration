@@ -1,16 +1,3 @@
 {
-  "user": [
-    {
-      "id": ":r1:",
-      "firstName": "Milan",
-      "lastName": "Rokaya",
-      "email": "milanrokaya2014@gmail.com",
-      "age": "22",
-      "address": "Ktm",
-      "country": "Nepal",
-      "city": "Ktm",
-      "gender": "Male",
-      "martialStatus": "Single"
-    }
-  ]
+  "user": []
 }

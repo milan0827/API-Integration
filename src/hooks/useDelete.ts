@@ -20,7 +20,6 @@ export function useDelete(
         setUserData(userList.filter((datas) => data.data.id !== datas.id));
       });
       setIsLoading(false);
-      return data;
     } catch (error) {
       const err = error as AxiosError;
       setError(err.message);
