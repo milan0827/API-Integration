@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import AppLayout from "../layout/AppLayout";
-import UserForm from "../pages/UserForm.tsx";
-import TableView from "../pages/TableView/index.tsx";
+import AppLayout from "~/layout/AppLayout";
+import TableView from "~/pages/TableView";
+import UserForm from "~/pages/UserForm.tsx";
 
 const router = createBrowserRouter([
   {

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { UserDataType } from "../../shared/type";
-import { shortString } from "../../utils/helpers";
-import { useDelete } from "../../hooks/useDelete";
+import { useDelete } from "~/hooks/useDelete";
+import { UserDataType } from "~/shared/type";
+import { shortString } from "~/utils/helpers";
 
 type UserType = {
   user: UserDataType;

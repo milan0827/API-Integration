@@ -1,8 +1,9 @@
-import useFetch from "../../hooks/useFetch";
-import { UserDataType } from "../../shared/type";
-import TableRow from "./TableRow";
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useFetch from "~/hooks/useFetch";
+import { UserDataType } from "~/shared/type";
+import TableRow from "./TableRow";
 
 const BASE_URL = "http://localhost:3000/user";
 
