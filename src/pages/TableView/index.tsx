@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useFetch from "~/hooks/useFetch";
 import { UserDataType } from "~/shared/type";
 import TableRow from "./TableRow";
+import Button from "~/components/Button/Button";
 
 function TableView() {
   const { data, isLoading, error } = useFetch();
@@ -27,12 +28,11 @@ function TableView() {
       <h1 className="mb-[32px] pl-[50px] text-center text-3xl font-semibold uppercase text-gray-700/80 ">
         User Data
       </h1>
-      <button
+      <Button
         onClick={() => navigate("/")}
-        className="rounded-sm bg-blue-400 px-4 py-1 text-right text-gray-100"
-      >
-        Add new +
-      </button>
+        label="Addd new +"
+        btnType="primary"
+      />
       <table className="m-auto mb-24 w-[95%] table-fixed border-collapse border-2 border-solid border-gray-300">
         <thead className="bg-slate-300">
           <tr className="text-gray-600/70">

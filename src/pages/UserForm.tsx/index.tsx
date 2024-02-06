@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Button from "~/components/Button/Button";
 import { usePost } from "~/hooks/usePost";
 import { useUpdate } from "~/hooks/useUpdate";
 import { UserDataType } from "~/shared/type";
@@ -237,9 +238,7 @@ function UserForm() {
           />
         </div>
 
-        <button className="bg-blue-400 p-4 text-gray-200">
-          {isLoading ? "loading" : "submit"}
-        </button>
+        <Button btnType="primary" label={isLoading ? "loading" : "submit"} />
       </form>
     </>
   );

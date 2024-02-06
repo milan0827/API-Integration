@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Button from "~/components/Button/Button";
 import { useDelete } from "~/hooks/useDelete";
 import { UserDataType } from "~/shared/type";
 import { shortString } from "~/utils/helpers";
@@ -30,22 +31,18 @@ export default function TableRow({ user, setUserList, userList }: UserType) {
       <td>{user.gender}</td>
       <td>{user.martialStatus}</td>
       <td>
-        <button
+        <Button
+          btnType="secondary"
           onClick={() => {
             navigate(`/user-details/${user.id}`, { state: { user } });
           }}
-          className="bg-yellow-300 px-4 py-1  text-white"
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => {
-            deleteUser();
-          }}
-          className="bg-red-400/70 px-2 py-1 text-white"
-        >
-          Delete
-        </button>
+          label="Edit"
+        />
+        <Button
+          btnType="tertiary"
+          onClick={() => deleteUser()}
+          label="Delete"
+        />
       </td>
     </tr>
   );
