@@ -10,17 +10,23 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <UserForm />,
-        loader: async () => {return;},
+        loader: async () => {
+          return null;
+        },
       },
       {
         path: "user-details/:id",
         element: <UserForm />,
-        loader: async () => {return;},
+        loader: async () => {
+          return null;
+        },
       },
       {
         path: "user-details",
         element: <TableView />,
-        loader: async () => {return;},
+        loader: async () => {
+          return null;
+        },
       },
     ],
   },
