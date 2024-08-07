@@ -11,7 +11,7 @@ function Button({ onClick, btnType, label }: ButtonType) {
     base: "bg-red-400/70 px-2 py-1 text-white",
     variants: {
       color: {
-        primary: "bg-blue-400/70",
+        primary: "bg-blue-400/60",
         secondary: "bg-yellow-400/70",
         tertiary: "bg-red-400/70",
       },
